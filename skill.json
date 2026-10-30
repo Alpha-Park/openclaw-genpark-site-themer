@@ -1,0 +1,9 @@
+{
+  "name": "openclaw-genpark-site-themer",
+  "version": "1.0.0",
+  "description": "OpenClaw GenPark Site Themer - Semantic CSS custom properties token generator, dark/light mode luminance inverter, and Euclidean RGB color distance Delta-E auditor with zero dependencies.",
+  "tools": [
+    "generate_semantic_css_custom_properties",
+    "calculate_palette_color_distance_delta_e"
+  ]
+}
