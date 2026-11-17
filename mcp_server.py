@@ -8,18 +8,9 @@ import json
 from typing import Dict, Any
 from client import OpenClawGenParkSiteThemer
 
-try:
-    from mcp.server.fastmcp import FastMCP
-    mcp = FastMCP("openclaw-genpark-site-themer")
-except ImportError:
-    class MockFastMCP:
-        def __init__(self, name):
-            self.name = name
-        def tool(self):
-            def decorator(f):
-                return f
-            return decorator
-    mcp = MockFastMCP("openclaw-genpark-site-themer")
+from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP('openclaw-genpark-site-themer')
 
 themer = OpenClawGenParkSiteThemer()
 
@@ -47,8 +38,7 @@ def calculate_palette_color_distance_delta_e(
     return json.dumps(res, indent=2)
 
 def main():
-    print("Testing Site Themer:")
-    print(generate_semantic_css_custom_properties())
+    mcp.run(transport="stdio")
 
 if __name__ == "__main__":
     main()
